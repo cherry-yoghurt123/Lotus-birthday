@@ -1,0 +1,193 @@
+body{
+
+margin:0;
+background:white;
+font-family:"Playfair Display";
+
+overflow-x:hidden;
+
+}
+
+/* title */
+
+#title{
+
+position:fixed;
+
+top:40px;
+
+width:100%;
+
+text-align:center;
+
+font-size:40px;
+
+letter-spacing:6px;
+
+opacity:0.7;
+
+}
+
+/* gallery */
+
+#gallery{
+
+display:grid;
+
+grid-template-columns:repeat(2, 300px);
+
+gap:120px;
+
+justify-content:center;
+
+padding-top:200px;
+
+}
+
+/* cards */
+
+.card{
+
+cursor:pointer;
+
+transition:0.4s;
+
+}
+
+.card:hover{
+
+transform:scale(1.04) translateY(-10px);
+
+}
+
+.card img{
+
+width:300px;
+
+height:300px;
+
+object-fit:cover;
+
+border-radius:8px;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.15);
+
+}
+
+/* popup background */
+
+#popup{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(255,255,255,0.96);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:0.4s;
+
+}
+
+/* popup visible */
+
+#popup.active{
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+/* popup box */
+
+#popupContent{
+
+max-width:650px;
+
+text-align:center;
+
+padding:40px;
+
+position:relative;
+
+}
+
+/* popup title */
+
+#popupTitle{
+
+font-size:32px;
+
+margin-bottom:20px;
+
+}
+
+/* popup text */
+
+#popupText{
+
+font-size:20px;
+
+line-height:1.6;
+
+margin-bottom:30px;
+
+}
+
+/* popup images */
+
+#popupImages img{
+
+width:220px;
+
+margin:10px;
+
+border-radius:6px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
+}
+
+/* popup link */
+
+#popupLink{
+
+display:inline-block;
+
+margin-top:20px;
+
+font-size:18px;
+
+text-decoration:none;
+
+color:black;
+
+border-bottom:1px solid black;
+
+}
+
+/* close button */
+
+#close{
+
+position:absolute;
+
+top:10px;
+
+right:10px;
+
+font-size:24px;
+
+cursor:pointer;
+
+}

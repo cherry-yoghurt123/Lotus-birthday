@@ -1,0 +1,244 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0d0a1a;
+  overflow: hidden;
+  font-family: 'Great Vibes', cursive;
+}
+
+/* Shared screen styling */
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 2s ease-in-out;
+}
+
+/* Intro screen */
+#introScreen {
+  background: black;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+}
+
+
+/* Sky screen */
+#skyScreen {
+  background: radial-gradient(circle at 50% 60%, #1a0f2e, #0d0a1a);
+  z-index: 1;
+}
+
+/* Visibility states */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+}
+
+/* Stars canvas */
+#stars{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* Start button text */
+#startText {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: whitesmoke;
+  z-index: 2;
+  font-family: monospace;
+  cursor: pointer;
+  transition: opacity 1s ease;
+  text-align: center;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.6),
+    0 0 20px rgba(200,180,255,0.4);
+}
+
+#startText:hover{
+  opacity:0.45;
+}
+
+/* Story narration text */
+#storyText{
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 80%;
+  font-family: monospace;
+  font-size: 22px;
+  line-height: 2;
+  letter-spacing: 1px;
+  text-align: left;
+  z-index: 3;
+
+  color: rgba(255,255,255,0.9);
+
+  text-shadow:
+    0 0 10px rgba(200,180,255,0.4),
+    0 0 25px rgba(160,120,255,0.2);
+}
+
+/* Fade animation when text appears */
+@keyframes textFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#continueText{
+  position:absolute;
+  bottom:60px;
+  width:100%;
+  text-align:center;
+  font-family:monospace;
+  font-size:18px;
+  opacity:0;
+  color: white;
+  transition:opacity 2s ease;
+}
+
+#continueText.visible{
+  opacity:0.8;
+}
+
+#warpFlash{
+  position:fixed;
+  inset:0;
+  background:white;
+  opacity:0;
+  transition:opacity 2s ease;
+  z-index:10;
+  pointer-events:none;
+}
+
+#warpFlash.active{
+  opacity:1;
+}
+
+#warpMessage{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-family:monospace;
+  font-size:26px;
+  letter-spacing:3px;
+  color:white;
+  opacity:0;
+  z-index:7;
+
+  text-shadow:
+    0 0 10px #fff,
+    0 0 20px #d8b4ff,
+    0 0 40px #ffb3ff;
+
+  transition:opacity 1.5s ease;
+}
+
+#warpMessage.visible{
+  opacity:1;
+}
+
+#warpLayer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:0;
+  z-index:5;
+  transition:opacity 2s ease;
+}
+
+#warpLayer.active{
+  opacity:1;
+}
+
+/* rainbow tunnel */
+
+#warpLayer::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+
+  background:
+    conic-gradient(
+      red,
+      orange,
+      yellow,
+      lime,
+      cyan,
+      blue,
+      violet,
+      red
+    );
+
+  filter: blur(80px);
+  animation:spinWarp 6s linear infinite;
+}
+
+@keyframes spinWarp{
+  from{ transform:rotate(0deg) scale(1); }
+  to{ transform:rotate(360deg) scale(1.4); }
+}
+
+/* travel text */
+
+#warpText{
+  position:absolute;
+  top:45%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-family:monospace;
+  font-size:34px;
+  color:white;
+  text-align:center;
+
+  opacity:0;
+
+  text-shadow:
+    0 0 10px white,
+    0 0 20px #ff8cff,
+    0 0 40px #6cf;
+
+  transition:opacity 1s ease;
+}
+
+#warpText.show{
+  opacity:1;
+}
+
+#warpText{
+
+position:absolute;
+top:45%;
+width:100%;
+text-align:center;
+
+font-family:monospace;
+font-size:30px;
+
+color:white;
+
+text-shadow:
+0 0 15px white,
+0 0 40px #8ef;
+
+opacity:0;
+
+transition:opacity 1.5s;
+
+z-index:5;
+
+}
